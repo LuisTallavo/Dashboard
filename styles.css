@@ -95,7 +95,7 @@ html, body {
 .content {
     grid-area: main-content;
     display: grid;
-    grid-template-rows: minmax(150px,  max-content) minmax(150px, max-content);
+    grid-template-rows: minmax(150px,  max-content) minmax(150px, 1fr);
     grid-template-columns: minmax(300px, 4fr) minmax(150px, 1fr);
     grid-template-areas:
     'Projects Announcements'
