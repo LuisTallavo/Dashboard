@@ -22,8 +22,8 @@ html, body {
     display: grid;
     height: auto;
     min-height: 100vh;
-    grid-template-rows: minmax(150px, 1fr) minmax(150px, 4fr);
-    grid-template-columns: minmax(150px, 1fr) minmax(150px, 4fr);
+    grid-template-rows: max-content minmax(150px, 6fr);
+    grid-template-columns: minmax(170px, 1fr) minmax(800px, 6fr);
     gap: 20px;
     grid-template-areas:
     'side-nav top-nav'
@@ -57,6 +57,16 @@ html, body {
     padding: 10px;
     display: inline-flex;
     align-items: center;
+    gap: 20px;
+}
+
+#alerts {
+    background-image: url(images/bell.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    height: 24px;
+    width: 24px;
 }
 
 .top-nav-links li {
@@ -76,15 +86,16 @@ html, body {
     grid-area: side-nav;
     background-color: var(--side-nav-col);
     display: grid;
-    grid-template-rows: minmax(50px, 2fr) repeat(11, 1fr);
+    grid-template-rows: repeat(12, max-content);
     grid-template-columns: 1fr;
     padding: 30px;
+    row-gap: 25px;
 }
 
 .content {
     grid-area: main-content;
     display: grid;
-    grid-template-rows: minmax(150px, 1fr) minmax(150px, 1fr);
+    grid-template-rows: minmax(150px,  max-content) minmax(150px, max-content);
     grid-template-columns: minmax(300px, 4fr) minmax(150px, 1fr);
     grid-template-areas:
     'Projects Announcements'
@@ -97,6 +108,11 @@ html, body {
     font-size: 22px;
     font-weight: 400;
     margin: 35px 30px 15px 30px;
+
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: max-content;
 }
 
 .news {
@@ -104,7 +120,11 @@ html, body {
     color: var(--dark-text);
     font-size: 22px;
     font-weight: 400;
-    margin: 35px 30px 15px 30px;
+    margin: 15px 30px 15px 0px;
+    display: grid;
+    gap: 10px;
+    grid-auto-rows: max-content;
+    grid-template-columns: 1fr;
 }
 
 .announcements {
@@ -112,7 +132,63 @@ html, body {
     color: var(--dark-text);
     font-size: 22px;
     font-weight: 400;
-    margin: 35px 30px 15px 30px;
+    margin: 35px 30px 15px 0px;
+    display: grid;
+    gap: 10px;
+    grid-auto-rows: max-content;
+    grid-template-columns: 1fr;
+}
+
+.announcements p {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--light-text);
+    line-height: 1.4;
+    margin: 0px;
+}
+
+.news p {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--light-text);
+    line-height: 1.4;
+    margin: 0px;
+}
+
+.announcements h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--dark-text);
+    margin: 0px;
+    line-height: 1.4;
+}
+
+.news h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--dark-text);
+    margin: 0px;
+    line-height: 1.4;
+}
+
+#announcement {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.075);
+    display: grid;
+    gap: 20px 15px;
+    grid-template-rows: max-content;
+    padding: 30px;
+}
+
+#news {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.075);
+    display: grid;
+    gap: 20px 15px;
+    grid-template-rows: max-content;
+    padding: 30px;
 }
 
 a {
@@ -122,8 +198,15 @@ a {
 .side-nav a {
     color: var(--light-text);
     text-decoration: none;
-    text-align: center;
+    padding-left: 30px;
     align-self: center;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+}
+
+.side-nav a:hover {
+    color: var(--hover-link);
 }
 
 
@@ -146,4 +229,149 @@ a {
     font-weight: 400;
     text-align: center;
     align-self: center;
+}
+
+.SectionTitle {
+    color: var(--dark-text);
+    font-size: 22px;
+    font-weight: 400;
+    grid-column: 1 / -1;
+    margin: 0px 30px 15px 30px;
+}
+
+
+.projectCard {
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.075);
+    display: grid;
+    gap: 10px;
+    grid-template-rows: max-content 1fr max-content;
+    padding: 30px;
+}
+
+
+.projectCard:hover {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s;
+    outline: 2px solid lightblue;
+  }
+
+.project-banner {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 4px;
+    height: 80px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+.project-title {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--dark-text);
+    margin-bottom: 10px;
+  }
+
+.project-description {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--light-text);
+    line-height: 1.4;
+  }
+
+.top-nav-links a:hover {
+    color: var(--hover-link);
+  }
+
+#dashboard {
+    background-image: url(images/dash.svg);  
+}
+#dashboard:hover {
+    background-image: url(images/dash-h.svg);  
+}
+#home {
+    background-image: url(images/home.svg);  
+}
+#home:hover {
+    background-image: url(images/home-h.svg);  
+}
+#profile {
+    background-image: url(images/profile.svg);  
+}
+#profile:hover {
+    background-image: url(images/profile-h.svg);  
+}
+#messages {
+    background-image: url(images/messages.svg);  
+}
+#messages:hover {
+    background-image: url(images/messages-h.svg);  
+}
+#tasks {
+    background-image: url(images/tasks.svg);  
+}
+#tasks:hover {
+    background-image: url(images/tasks-h.svg);  
+}
+#communities {
+    background-image: url(images/community.svg);  
+}
+#communities:hover {
+    background-image: url(images/community-h.svg);  
+}
+#settings {
+    background-image: url(images/settings.svg);  
+}
+#settings:hover {
+    background-image: url(images/settings-h.svg);  
+}
+#support {
+    background-image: url(images/support.svg);  
+}
+#support:hover {
+    background-image: url(images/support-h.svg);  
+}
+#privacy {
+    background-image: url(images/privacy.svg);  
+}
+#privacy:hover {
+    background-image: url(images/privacy-h.svg);  
+}
+
+
+input:not(:focus):placeholder-shown {
+    background-image: url(images/search.svg);
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    border-radius: 30px;
+    height: 40px;
+    width: 40px;
+}
+
+input, input:focus, input:focus:not(:placeholder-shown) {
+    background-color: rgb(233, 235, 243);
+    border-radius: 30px;
+    border: none;
+    color: var(--dark-text);
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    outline: none;
+    padding: 10px 20px;
+    transition: width 0.3s;
+    width: 250px;
+}
+
+.avatar {
+    background-color: var(--dark-text);
+    background-image: url(images/Avatar.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 50%;
+    border: 1px solid var(--light-text);
+    height: 40px;
+    width: 40px;
 }
